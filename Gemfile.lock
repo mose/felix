@@ -6,6 +6,9 @@ GEM
       http_parser.rb (~> 0.5.3)
     eventmachine (1.0.3)
     http_parser.rb (0.5.3)
+    minitest (4.3.2)
+    rake (10.0.3)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -13,3 +16,6 @@ PLATFORMS
 DEPENDENCIES
   em-websocket
   eventmachine
+  minitest
+  rake
+  yajl-ruby
