@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require "daemons"
-
 $:<<File.expand_path("../../lib",__FILE__)
 require "felix"
 

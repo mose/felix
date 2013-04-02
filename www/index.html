@@ -1,7 +1,32 @@
 <html>
   <head>
     <title>Felix the Chat</title>
+    <link type="text/css" href="felix.css" rel="stylesheet" />
+    <script type="text/javascript" src="felix.js"></script>
   </head>
   <body>
+    <div id="loginpanel">
+      <form id="login">
+        <input type="text" placeholde="your login" />
+        <input type="submit" value="Log In" />
+      </form>
+    </div>
+    <div id="chat">
+      <div id="roomspanel">
+        <ul id="rooms">
+          <li id="system" class="roomtab active">System</a></li>
+        </ul>
+      </div>
+      <div>
+        <div id="userlist">
+        </div>
+        <div id="messagespannel">
+          <div id="messages">
+          </div>
+          <div id="inputbox">
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

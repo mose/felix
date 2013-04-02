@@ -1,0 +1,47 @@
+body {
+  background-color: #111;
+  color: #ddd;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: #abc;
+  text-decoration: none;
+}
+#loginpanel {
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  text-align: center;
+  display: table;
+}
+#loginpanel div {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+#chat {
+  display: none;
+  height: 0;
+}
+#roompanel {
+  height: 100px;
+}
+#roompanel ul {
+  list-style: 0;
+  margin: 0;
+  padding: 0;
+}
+#roompanel ul li {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #666;
+}
+#roompanel ul li:hover {
+  background-color: #999;
+}
+#roompanel ul li.active {
+  background-color: #369;
+}

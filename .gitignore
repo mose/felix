@@ -1,6 +1,6 @@
 *.gem
 .bundle
 test/tmp
-tmp/
-logs/
+tmp/*.pid
+logs/*
 config.yml
