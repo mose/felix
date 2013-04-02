@@ -5,23 +5,26 @@ module Felix
 
     def initialize
       Config.load
-      @log = 'log/felix.log'
+      @log = 'logs/felix.log'
       @pid = 'tmp/felix.pid'
     end
 
     def start
-      Process.setsid
-      print "[\e[90mFelix\e[0m] Process daemonized with pid \e[1m%d\e[0m\n" % [ Process.pid ]
-      %w(INT TERM KILL).each { |signal| trap(signal)  { stop } }
-      stream = File.new(@log, 'a')
-      stream.sync = true
-      STDOUT.reopen(stream)
-      STDERR.reopen(STDOUT)
-      @started_at = Time.now
-      while true do
-        puts Time.now
-        sleep 2
-      end
+      fork {
+        Process.setsid
+        print "[\e[90mFelix\e[0m] Process daemonized with pid \e[1m%d\e[0m\n" % [ Process.pid ]
+        File.open(@pid, "w") { |f| f.write(Process.pid.to_s) }
+        %w(INT TERM KILL).each { |signal| trap(signal)  { stop } }
+        stream = File.new(@log, 'a')
+        stream.sync = true
+        STDOUT.reopen(stream)
+        STDERR.reopen(STDOUT)
+        @started_at = Time.now
+        while true do
+          puts Time.now
+          sleep 2
+        end
+      }
     end
 
     def stop
