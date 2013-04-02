@@ -4,9 +4,9 @@ module Felix
   class Server
     def initialize
     end
-    def run
+    def start
       EM.run {
-        EM::WebSocket.run(:host => "0.0.0.0", :port => 8080) do |ws|
+        EM::WebSocket.run(:host => Config.host, :port => Config.port) do |ws|
           ws.onopen do |handshake|
             puts "WebSocket connection open"
           end

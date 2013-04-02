@@ -1,6 +1,31 @@
-#!/bin/env ruby
+#!/usr/bin/env ruby
+
+require "daemons"
 
 $:<<File.expand_path("../../lib",__FILE__)
 require "felix"
 
-puts "wip"
+felix = Felix::Base.new
+
+case ARGV[0]
+when 'start'
+  felix.start
+when 'stop'
+  felix.stop
+when 'restart'
+  felix.restart
+else
+  puts <<-_END_
+
+  Syntax #{$0} <option>
+
+  Available option:
+    start
+    stop
+    restart
+
+_END_
+end
+
+
+
