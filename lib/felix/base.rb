@@ -10,6 +10,7 @@ module Felix
     end
 
     def start
+      stop if File.exist? @pid
       fork {
         Process.setsid
         print "[\e[90mFelix\e[0m] Process daemonized with pid \e[1m%d\e[0m\n" % [ Process.pid ]
@@ -31,6 +32,7 @@ module Felix
       pid_was = File.read(@pid).to_i
       print "[\e[90mFelix\e[0m] Killing process \e[1m%d\e[0m...\n" % [pid_was]
       Process.kill(:KILL, pid_was)
+      FileUtils.rm(@pid)
     end
 
     def restart
