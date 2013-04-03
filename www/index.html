@@ -1,29 +1,42 @@
+<!doctype html5>
 <html>
   <head>
+    <meta charset='utf-8' />
     <title>Felix the Chat</title>
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link type="text/css" href="felix.css" rel="stylesheet" />
     <script type="text/javascript" src="felix.js"></script>
   </head>
   <body>
-    <div id="loginpanel">
+    <table id="loginpanel"><tr><td>
       <form id="login">
         <input type="text" placeholde="your login" />
         <input type="submit" value="Log In" />
       </form>
-    </div>
+    </td></tr></table>
     <div id="chat">
       <div id="roomspanel">
+        <h1>Felix the Chat</h1>
         <ul id="rooms">
-          <li id="system" class="roomtab active">System</a></li>
+          <li id="system" class="roomtab active">Central Room</a></li>
+          <li id="Small room" class="roomtab">Small Room</a></li>
         </ul>
       </div>
-      <div>
+      <div id="central">
         <div id="userlist">
+          <ul>
+            <li>Someone</li>
+          </ul>
         </div>
-        <div id="messagespannel">
+        <div id="messagespanel">
           <div id="messages">
+            ... connected
           </div>
           <div id="inputbox">
+            <form>
+              <textarea></textarea>
+            </form>
           </div>
         </div>
       </div>

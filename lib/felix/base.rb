@@ -7,6 +7,7 @@ module Felix
       Config.load
       @log = 'logs/felix.log'
       @pid = 'tmp/felix.pid'
+      @server = Server.new
     end
 
     def start
@@ -21,10 +22,7 @@ module Felix
         STDOUT.reopen(stream)
         STDERR.reopen(STDOUT)
         @started_at = Time.now
-        while true do
-          puts Time.now
-          sleep 2
-        end
+        @server.start
       }
     end
 
