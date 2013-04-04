@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded',function() {
     document.getElementById("loginpanel").style.display = "none";
     document.getElementById("chat").style.display = "block";
   });
-    document.getElementById("loginpanel").style.display = "none";
-    document.getElementById("chat").style.display = "block";
+  
+  document.getElementById("loginpanel").style.display = "none";
+  document.getElementById("chat").style.display = "block";
 
 });
