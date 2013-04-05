@@ -6,14 +6,18 @@
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link type="text/css" href="felix.css" rel="stylesheet" />
+    <script type="text/javascript" src="compat.js"></script>
     <script type="text/javascript" src="felix.js"></script>
   </head>
   <body>
+    <a href="http://github.com/mose/felix"><img style="position: absolute; top: 0; right: 0; z-index: 1; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
     <table id="loginpanel"><tr><td>
       <form id="login">
+        <h1>Felix the Chat</h1>
         <input type="text" placeholde="your login" />
         <input type="submit" value="Log In" />
       </form>
+      <div id="welcome"></div>
     </td></tr></table>
     <div id="chat">
       <div id="roomspanel">
@@ -95,7 +99,7 @@
           </div>
           <div id="inputbox">
             <form>
-              <textarea></textarea>
+              <textarea id="inputline"></textarea>
             </form>
           </div>
         </div>

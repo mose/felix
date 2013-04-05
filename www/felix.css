@@ -181,14 +181,17 @@ a {
   padding: 4px 4px 4px 20px;
   margin: 0;
   color: #fff;
+  font-family: 'Source Code Pro', sans-serif;
+  font-size: 12px;
 }
 #inputbox textarea:focus {
   background-color: #333;
 }
-#inputbox textarea:before {
+#inputbox:before {
+  position: absolute;
+  left: 5px;
+  top: 1px;
   color: #f90;
-  right: -20px;
-  top: -10px;
   content: ">";
   z-index: 1;
 }
