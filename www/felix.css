@@ -18,6 +18,38 @@ a {
   text-align: center;
   vertical-align: middle;
 }
+#loginpanel input[type="submit"] {
+  position: relative;
+  top: -2px;
+  border: 1px solid #135;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #135;
+  background-color: #39c;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7), 0 -1px 0 rgba(64, 38, 5, 0.9); 
+  -moz-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.7), 0 5px 0 #17a, 0 6px 0 #135;
+  -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.7), 0 5px 0 #17a, 0 6px 0 #135;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.7), 0 5px 0 #17a, 0 6px 0 #135;
+  -webkit-transition: background 0.2s ease-out;
+  transition: background 0.2s ease-out;
+}
+#loginpanel input[type="submit"]:hover {
+  background-color: #6cd;
+  -moz-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 2px 1px rgba(200, 220, 250, 0.8), 0 5px 0 #17a, 0 6px 0 #135;
+  -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 2px 1px rgba(200, 220, 250, 0.8), 0 5px 0 #17a, 0 6px 0 #135;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 2px 1px rgba(200, 220, 250, 0.8), 0 5px 0 #17a, 0 6px 0 #135;  
+}
+#loginpanel input[type="submit"]:active {
+  top: 0;
+  background-color: #fff;
+  -moz-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 1px 2px rgba(200, 220, 250, 0.8), 0 3px 0 #17a, 0 0px 0 #135;
+  -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 1px 2px rgba(200, 220, 250, 0.8), 0 3px 0 #17a, 0 0px 0 #135;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.9), inset 0 1px 2px rgba(200, 220, 250, 0.8), 0 3px 0 #17a, 0 0px 0 #135;  
+}
 #chat {
   display: none;
 }

@@ -5,11 +5,17 @@ document.addEventListener('DOMContentLoaded',function() {
         chatpanel = document.getElementById("chat"),
         inputline = document.getElementById("inputline"),
         welcome = document.getElementById("welcome"),
-        conn = {},
-        entities = { '<' : '&lt;', '>' : '&gt;', '&' : '&amp;' };
+        messagesboard = document.getElementById("messages"),
+        rooms = { central: document.getElementById("central_room") },
+        conn = {};
 
   if (window.MozWebSocket) {
     window.WebSocket = window.MozWebSocket;
+  }
+
+  function sanitize(s) {
+    entities = { '<' : '&lt;', '>' : '&gt;', '&' : '&amp;' };
+    return s.replace(/[<>&]/g, function (m) { return entities[m]; });
   }
 
   function openConnection(login) {
@@ -21,6 +27,18 @@ document.addEventListener('DOMContentLoaded',function() {
       };
       conn.onmessage = function (e) {
         var message = JSON.parse(e.data);
+
+        newline = document.createElement("div");
+        addClass(newline,"line");
+        if (data.type === 0) {
+          addClass(newline,"system");
+        } else {
+          time = document.createElement("span");
+          addClass(time,"timestamp");
+
+        }
+
+        t = new Time;
         console.log(message);
       };
       conn.onclose = function (e) {
