@@ -25,7 +25,7 @@ module Felix
           ws.onmessage do |msg|
             message = Message.new(msg)
             ws.send message.output
-            puts "Recieved message: #{message.}"
+            puts "Recieved message: #{message.body}"
             ap ws
             ws.send "Pong: #{msg}"
           end
