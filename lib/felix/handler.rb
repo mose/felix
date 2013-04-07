@@ -1,8 +1,10 @@
 module Felix
   class Handler
     def initialize
+      
     end
-    def request(command)
+    def process(command)
+
     end
   end
 end

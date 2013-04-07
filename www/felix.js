@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded',function() {
 
-    var loginform = document.getElementById("login"),
+    var loginform = document.getElementById("loginform"),
         loginpanel = document.getElementById("loginpanel"),
+        logininput = document.getElementById("logininput"),
         chatpanel = document.getElementById("chat"),
         inputline = document.getElementById("inputline"),
         welcome = document.getElementById("welcome"),
@@ -21,13 +22,14 @@ document.addEventListener('DOMContentLoaded',function() {
   function openConnection(login) {
     console.log(conn);
     if (conn.readyState === undefined || conn.readyState > 1) {
-      conn = new WebSocket('ws://localhost:4005');    
+      conn = new WebSocket('ws://localhost:4005'); 
+
       conn.onopen = function () {
         welcome.textContent = "Server is available.";
       };
+
       conn.onmessage = function (e) {
         var message = JSON.parse(e.data);
-
         newline = document.createElement("div");
         addClass(newline,"line");
         if (data.type === 0) {
@@ -35,18 +37,20 @@ document.addEventListener('DOMContentLoaded',function() {
         } else {
           time = document.createElement("span");
           addClass(time,"timestamp");
-
         }
-
         t = new Time;
         console.log(message);
       };
+
       conn.onclose = function (e) {
       };
+
       conn.onerror = function(err) {
+        logininput.style.display = "none";
         removeEvent(loginform, 'submit');
         welcome.textContent = "Server is not available.";
       }
+
     }
   }
 
@@ -61,7 +65,14 @@ document.addEventListener('DOMContentLoaded',function() {
         inputline.focus();
       }
     });
-
+    addEvent(inputline, 'keydown', function (e) {
+      var keycode = ('which' in e) ? e.which : e.keyCode;
+      if (keycode ===  13) { // enter key
+        e.preventDefault();
+        conn.send({ msg: inputline.value });
+        inputline.value = "";
+      }
+    });
     openConnection();  
   }
 

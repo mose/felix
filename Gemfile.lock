@@ -5,23 +5,31 @@ PATH
       em-websocket
       eventmachine
       eventmachine
+      yajl-ruby
 
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.1.0)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
     eventmachine (1.0.3)
     http_parser.rb (0.5.3)
+    metaclass (0.0.1)
     minitest (4.3.2)
+    mocha (0.13.3)
+      metaclass (~> 0.0.1)
     rake (10.0.3)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bundler (~> 1.3)
   felix!
   minitest
+  mocha
   rake

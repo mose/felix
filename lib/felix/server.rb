@@ -1,9 +1,11 @@
 require 'em-websocket'
+require 'awesome_print'
 
 module Felix
   class Server
     
     def initialize
+      @handler = Felix::Handler.new
     end
     
     def start
@@ -13,6 +15,7 @@ module Felix
 
           ws.onopen do |handshake|
             puts "WebSocket connection open"
+            ap handshake
           end
           
           ws.onclose do 
@@ -20,7 +23,10 @@ module Felix
           end
           
           ws.onmessage do |msg|
-            puts "Recieved message: #{msg}"
+            message = Message.new(msg)
+            ws.send message.output
+            puts "Recieved message: #{message.}"
+            ap ws
             ws.send "Pong: #{msg}"
           end
           
