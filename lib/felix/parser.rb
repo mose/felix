@@ -6,6 +6,8 @@ module Felix
 
     def read(payload)
       Yajl::Parser.parse(payload, symbolize_keys: true)
+    rescue Exception => e
+      { ok: false, message: e }
     end
 
     def write(object)

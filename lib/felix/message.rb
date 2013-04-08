@@ -2,7 +2,7 @@ require "felix/parser"
 
 module Felix
   class Message
-    
+
     attr_reader :author, :body
 
     def initialize(content)
@@ -10,7 +10,7 @@ module Felix
       @author = payload[:who]
       @body = payload[:message]
     end
-    
+
     def output
       Parser.write(self)
     end

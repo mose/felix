@@ -5,7 +5,7 @@ module Felix
 
     def initialize
       Config.load
-      @log = 'logs/felix.log'
+      @logfile = 'logs/felix.log'
       @pid = 'tmp/felix.pid'
       @server = Server.new
     end
@@ -17,13 +17,18 @@ module Felix
         print "[\e[90mFelix\e[0m] Process daemonized with pid \e[1m%d\e[0m\n" % [ Process.pid ]
         File.open(@pid, "w") { |f| f.write(Process.pid.to_s) }
         %w(INT TERM KILL).each { |signal| trap(signal)  { stop } }
-        stream = File.new(@log, 'a')
-        stream.sync = true
-        STDOUT.reopen(stream)
-        STDERR.reopen(STDOUT)
+        pipelog
+        log "Server started."
         @started_at = Time.now
         @server.start
       }
+    end
+
+    def pipelog
+      stream = File.new(@logfile, 'a')
+      stream.sync = true
+      STDOUT.reopen(stream)
+      STDERR.reopen(STDOUT)
     end
 
     def stop
