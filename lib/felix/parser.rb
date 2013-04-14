@@ -11,7 +11,11 @@ module Felix
     end
 
     def write(object)
-      Yajl::Encoder.encode(object)
+      encoder.encode(object)
+    end
+
+    def encoder
+      @@_encoder ||= Yajl::Encoder.new
     end
 
   end

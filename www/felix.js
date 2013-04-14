@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',function() {
       conn = new WebSocket('ws://localhost:4005', ['soap', 'xmpp']);
 
       conn.onopen = function () {
-        conn.send('Ping');
+        conn.send('{ "msg": "Ping"}');
         welcome.textContent = "Server is available.";
       };
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded',function() {
         t = new Date().getTime();
         time.appendChild(document.createTextNode(t));
         newline.appendChild(time);
-        messagesboard.getElementById("central_room").appendChild(newline);
+        document.getElementById("central_room").appendChild(newline);
       };
 
       conn.onclose = function (e) {
@@ -79,8 +79,11 @@ document.addEventListener('DOMContentLoaded',function() {
     addEvent(inputline, 'keydown', function (e) {
       var keycode = ('which' in e) ? e.which : e.keyCode;
       if (keycode ===  13) { // enter key
+        if (e.meta || e.control) return;
         e.preventDefault();
-        conn.send({ msg: inputline.value });
+        msg = '{ "msg": "'+inputline.value+'" }';
+        console.log(msg);
+        conn.send(msg);
         inputline.value = "";
       }
     });

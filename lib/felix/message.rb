@@ -8,7 +8,7 @@ module Felix
     def initialize(content)
       payload = Parser.read(content)
       @author = payload[:who]
-      @body = payload[:message]
+      @body = payload[:msg]
     end
 
     def output

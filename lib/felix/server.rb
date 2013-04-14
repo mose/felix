@@ -26,6 +26,7 @@ module Felix
           ws.onmessage do |msg|
             message = Message.new(msg)
             #ap Parser.write(msg)
+            ap message
             ws.send message.output
           end
 
