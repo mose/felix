@@ -1,7 +1,7 @@
-require_relative "../../test_helper"
+require_relative '../../test_helper'
 
-require "felix/base"
+require 'felix/base'
 
-describe Felix::Base do 
+describe Felix::Base do
 
 end

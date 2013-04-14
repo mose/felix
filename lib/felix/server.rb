@@ -16,7 +16,7 @@ module Felix
           ws.onopen do |handshake|
             puts 'WebSocket connection open'
 
-            #ap handshake
+            ap handshake
           end
 
           ws.onclose do
@@ -26,7 +26,7 @@ module Felix
           ws.onmessage do |msg|
             message = Message.new(msg)
             #ap Parser.write(msg)
-            ap message
+            ap message.output
             ws.send message.output
           end
 

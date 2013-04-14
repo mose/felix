@@ -12,7 +12,7 @@ module Felix
     end
 
     def output
-      Parser.write(self)
+      Parser.write({ author: @author, body: @body })
     end
 
   end
