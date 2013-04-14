@@ -1,4 +1,4 @@
-require "felix/parser"
+require 'felix/parser'
 
 module Felix
   class Message

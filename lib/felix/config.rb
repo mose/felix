@@ -11,10 +11,10 @@ module Felix
     end
 
     def self.config_file
-      configfile = File.expand_path("../../../config.yml",__FILE__)
+      configfile = File.expand_path('../../../config.yml', __FILE__)
       unless File.exists? configfile
-        default = File.expand_path("../../../config.default.yml",__FILE__)
-        FileUtils.cp(default,configfile)
+        default = File.expand_path('../../../config.default.yml', __FILE__)
+        FileUtils.cp(default, configfile)
       end
       configfile
     end

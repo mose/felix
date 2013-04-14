@@ -9,18 +9,18 @@ module Felix
     end
 
     def start
-      EM.run {
+      EM.run do
 
-        EM::WebSocket.run(:host => Config.host, :port => Config.port) do |ws|
+        EM::WebSocket.run(host: Config.host, port: Config.port) do |ws|
 
           ws.onopen do |handshake|
-            puts "WebSocket connection open"
+            puts 'WebSocket connection open'
 
             #ap handshake
           end
 
           ws.onclose do
-            puts "Connection closed"
+            puts 'Connection closed'
           end
 
           ws.onmessage do |msg|
@@ -39,7 +39,7 @@ module Felix
           end
 
         end
-      }
+      end
     end
 
     def stop

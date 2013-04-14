@@ -15,7 +15,7 @@ module Felix
     end
 
     def encoder
-      @@_encoder ||= Yajl::Encoder.new
+      @_encoder ||= Yajl::Encoder.new
     end
 
   end
