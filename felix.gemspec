@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "eventmachine"
   spec.add_dependency "em-websocket"
-  spec.add_dependency "eventmachine"
   spec.add_dependency "yajl-ruby"
 
   spec.add_development_dependency "bundler", "~> 1.3"

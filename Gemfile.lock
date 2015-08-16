@@ -4,7 +4,6 @@ PATH
     felix (0.0.1)
       em-websocket
       eventmachine
-      eventmachine
       yajl-ruby
 
 GEM
